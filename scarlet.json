@@ -1,0 +1,39 @@
+{
+ "name": "我的 IPA 源",
+ "iconURL": "https://demo.github.io/ipa-source/icons/com.test.toolbox.png",
+ "apps": [
+  {
+   "name": "工具箱",
+   "bundleIdentifier": "com.test.toolbox",
+   "developerName": "SelfHosted",
+   "version": "2.0",
+   "versionDate": "2026-11-08T07:46:48Z",
+   "versionDescription": "工具箱-2.0.ipa",
+   "downloadURL": "https://github.com/demo/repo/releases/download/v2.0/工具箱-2.0.ipa",
+   "size": 101237,
+   "iconURL": "https://demo.github.io/ipa-source/icons/com.test.toolbox.png"
+  },
+  {
+   "name": "测试应用",
+   "bundleIdentifier": "com.test.demo",
+   "developerName": "SelfHosted",
+   "version": "1.2.3",
+   "versionDate": "2026-11-08T07:46:48Z",
+   "versionDescription": "测试应用-1.2.3.ipa",
+   "downloadURL": "https://demo.github.io/ipa-source/%E6%B5%8B%E8%AF%95%E5%BA%94%E7%94%A8-1.2.3.ipa",
+   "size": 101244,
+   "iconURL": "https://demo.github.io/ipa-source/icons/com.test.demo.png"
+  },
+  {
+   "name": "测试应用",
+   "bundleIdentifier": "com.test.demo",
+   "developerName": "SelfHosted",
+   "version": "1.3.0",
+   "versionDate": "2026-11-08T07:46:48Z",
+   "versionDescription": "测试应用-1.3.0.ipa",
+   "downloadURL": "https://demo.github.io/ipa-source/%E6%B5%8B%E8%AF%95%E5%BA%94%E7%94%A8-1.3.0.ipa",
+   "size": 101244,
+   "iconURL": "https://demo.github.io/ipa-source/icons/com.test.demo.png"
+  }
+ ]
+}

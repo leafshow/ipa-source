@@ -1,0 +1,50 @@
+{
+ "name": "我的 IPA 源",
+ "message": "自建 IPA 源",
+ "identifier": "我的 IPA 源",
+ "sourceURL": "https://demo.github.io/ipa-source/appstore",
+ "sourceicon": "https://demo.github.io/ipa-source/icons/com.test.toolbox.png",
+ "payURL": "",
+ "unlockURL": "",
+ "apps": [
+  {
+   "name": "工具箱",
+   "type": 0,
+   "version": "2.0",
+   "versionDate": "2026-11-08T07:46:48Z",
+   "versionDescription": "工具箱-2.0.ipa",
+   "lock": "0",
+   "downloadURL": "https://github.com/demo/repo/releases/download/v2.0/工具箱-2.0.ipa",
+   "isLanZouCloud": false,
+   "iconURL": "https://demo.github.io/ipa-source/icons/com.test.toolbox.png",
+   "tintColor": "0e7afe",
+   "size": 101237
+  },
+  {
+   "name": "测试应用",
+   "type": 0,
+   "version": "1.2.3",
+   "versionDate": "2026-11-08T07:46:48Z",
+   "versionDescription": "测试应用-1.2.3.ipa",
+   "lock": "0",
+   "downloadURL": "https://demo.github.io/ipa-source/%E6%B5%8B%E8%AF%95%E5%BA%94%E7%94%A8-1.2.3.ipa",
+   "isLanZouCloud": false,
+   "iconURL": "https://demo.github.io/ipa-source/icons/com.test.demo.png",
+   "tintColor": "0e7afe",
+   "size": 101244
+  },
+  {
+   "name": "测试应用",
+   "type": 0,
+   "version": "1.3.0",
+   "versionDate": "2026-11-08T07:46:48Z",
+   "versionDescription": "测试应用-1.3.0.ipa",
+   "lock": "0",
+   "downloadURL": "https://demo.github.io/ipa-source/%E6%B5%8B%E8%AF%95%E5%BA%94%E7%94%A8-1.3.0.ipa",
+   "isLanZouCloud": false,
+   "iconURL": "https://demo.github.io/ipa-source/icons/com.test.demo.png",
+   "tintColor": "0e7afe",
+   "size": 101244
+  }
+ ]
+}

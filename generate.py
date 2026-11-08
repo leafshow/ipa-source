@@ -106,9 +106,17 @@ def main():
 
     ipas = sorted(f for f in os.listdir(args.ipas) if f.lower().endswith(".ipa")) if os.path.isdir(args.ipas) else []
     if not ipas:
-        print("在 %s 中没有找到 .ipa 文件" % args.ipas); sys.exit(1)
+        print("在 %s 中没有找到 .ipa 文件（空源，继续生成空 JSON）" % args.ipas)
 
     os.makedirs(args.out, exist_ok=True)
+
+    # 可选 urls.json：文件名 → 外部直链（R2 / GitHub Releases / 蓝奏云等）
+    url_map = {}
+    for cand in ("urls.json", os.path.join(args.out, "urls.json")):
+        if os.path.isfile(cand):
+            with open(cand, encoding="utf-8") as f:
+                url_map.update(json.load(f))
+
     icons_dir = os.path.join(args.out, "icons")
     metas = []
     print("解析 %d 个 IPA..." % len(ipas))
@@ -118,18 +126,13 @@ def main():
             metas.append(m)
             # 复制 IPA 到输出目录（同目录则跳过）
             src = os.path.join(args.ipas, fn); dst = os.path.join(args.out, fn)
-            if os.path.abspath(src) != os.path.abspath(dst):
+            if fn in url_map:
+                print("  [外链] %s 已由外部托管，不复制进站点" % fn)
+            elif os.path.abspath(src) != os.path.abspath(dst):
                 shutil.copy2(src, dst)
             print("  [OK] %s  %s %s (%.1f MB)" % (m["name"], m["bid"], m["version"], m["size"] / 1048576))
     if not metas:
-        print("没有可用的 IPA"); sys.exit(1)
-
-    # 可选 urls.json：文件名 → 外部直链（GitHub Releases 大文件、蓝奏云等）
-    url_map = {}
-    for cand in ("urls.json", os.path.join(args.out, "urls.json")):
-        if os.path.isfile(cand):
-            with open(cand, encoding="utf-8") as f:
-                url_map.update(json.load(f))
+        print("没有可用的 IPA（生成空源）")
 
     def dl_url(fn): return url_map.get(fn) or (base + quote(fn))
     def icon_abs(rel): return base + quote(rel) if rel else ""
@@ -163,7 +166,7 @@ def main():
     apps = sorted(apps_map.values(), key=lambda a: a["name"])
     altstore = {
         "name": args.name,
-        "iconURL": apps[0]["iconURL"] or "",
+        "iconURL": (apps[0]["iconURL"] if apps else "") or "",
         "website": args.website or base,
         "tintColor": args.tint, "apps": apps,
     }

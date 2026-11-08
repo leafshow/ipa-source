@@ -1,0 +1,29 @@
+name: build-source
+on:
+  push:
+    paths: ["ipas/**", "urls.json", "generate.py"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 重新生成源文件
+        run: python generate.py --ipas ipas --out . --base https://leafshow.github.io/ipa-source/ --name "我的 IPA 源"
+
+      - name: 提交并发布
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -qm "auto: 重建源 JSON"
+          git push
